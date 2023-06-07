@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class StudioPerformance extends Performance{
     // StudioPerformance is an extend of Performance where audio processing can be done and can record the performance
     
-    public StudioPerformance(String name, int year, String venue, MusicTrack[] trackList, Singer mainArtist, BackupDancer[] backupDancers, BackupSinger[] backupSingers) {
+    public StudioPerformance(String name, int year, String venue, ArrayList<MusicTrack> trackList, Singer mainArtist, ArrayList<BackupDancer> backupDancers, ArrayList<BackupSinger> backupSingers) {
         super(name, year, venue, trackList, mainArtist, backupDancers, backupSingers);
     }
 

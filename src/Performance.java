@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Performance {
     // Each performance has a name, year, venue, main artist, track list, backup dancers and backup singers
     // when the performance is initialized, a welcome msg is displayed and main artist starts singing. Backup singers and dancers will back him/her up
@@ -5,12 +7,12 @@ public class Performance {
     private String name;
     private int year;
     private String venue;
-    private MusicTrack[] trackList;
+    private ArrayList<MusicTrack> trackList;
     private Singer mainArtist;
-    private BackupDancer[] backupDancers;
-    private BackupSinger[] backupSingers;
+    private ArrayList<BackupDancer> backupDancers;
+    private ArrayList<BackupSinger> backupSingers;
 
-    public Performance(String name, int year, String venue, MusicTrack[] trackList, Singer mainArtist, BackupDancer[] backupDancers, BackupSinger[] backupSingers) {
+    public Performance(String name, int year, String venue, ArrayList<MusicTrack> trackList, Singer mainArtist, ArrayList<BackupDancer> backupDancers, ArrayList<BackupSinger> backupSingers) {
         this.name = name;
         this.year = year;
         this.venue = venue;
@@ -50,15 +52,7 @@ public class Performance {
     }
 
     public void addNewTrack(MusicTrack newTrack) {
-        int n = this.trackList.length+1;
-        MusicTrack[] newList = new MusicTrack[n];
-        for(int i = 0; i < n-1; i++){
-            newList[i] = this.trackList[i];
-        }
-        newList[n] = newTrack;
-        this.trackList = newList;
-
-        System.out.println("This is the method addNewTrack() in the class Performance");
+        this.trackList.add(newTrack);
     }
 
     public int getYear() {
@@ -71,5 +65,58 @@ public class Performance {
         System.out.println("This is the method getVenue() in the class Performance");
         return venue;
 
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setVenue(String venue) {
+        this.venue = venue;
+    }
+
+    public ArrayList<MusicTrack> getTrackList() {
+        return trackList;
+    }
+
+    public void setTrackList(ArrayList<MusicTrack> trackList) {
+        this.trackList = trackList;
+    }
+
+    public Singer getMainArtist() {
+        return mainArtist;
+    }
+
+    public void setMainArtist(Singer mainArtist) {
+        this.mainArtist = mainArtist;
+    }
+
+    public ArrayList<BackupDancer> getBackupDancers() {
+        return backupDancers;
+    }
+
+    public void setBackupDancers(ArrayList<BackupDancer> backupDancers) {
+        this.backupDancers = backupDancers;
+    }
+
+    public ArrayList<BackupSinger> getBackupSingers() {
+        return backupSingers;
+    }
+
+    public void setBackupSingers(ArrayList<BackupSinger> backupSingers) {
+        this.backupSingers = backupSingers;
+    }
+
+    @Override
+    public String toString() {
+        String str = "Performance: " +
+                "mainArtist=" + mainArtist.getName() +
+                ", name='" + name + '\'' +
+                ", year=" + year +
+                ", venue='" + venue + '\'' +
+                ", trackList=" + trackList.toString() +
+                ", backupDancers=" + backupDancers +
+                ", backupSingers=" + backupSingers;
+        return str;
     }
 }

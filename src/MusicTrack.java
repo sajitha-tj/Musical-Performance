@@ -9,4 +9,10 @@ public class MusicTrack {
         this.name = name;
         this.duration = duration;
     }
+
+    @Override
+    public String toString() {
+        String str = "song= " + name + ' ';
+        return str;
+    }
 }
